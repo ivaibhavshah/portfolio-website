@@ -75,7 +75,7 @@ function Hero() {
       <div className="flex flex-wrap gap-3 text-sm text-slate-300">
         <ContactPill icon="phone" label={personal.phone} href={`tel:${personal.phone.replace(/\s+/g, "")}`} />
         <ContactPill icon="mail" label={personal.email} href={`mailto:${personal.email}`} />
-        <ContactPill icon="map" label={personal.location} />
+        <ContactPill icon="map" label={personal.location} href={`${personal.locationUrl}`} />
       </div>
       <div className="flex flex-wrap gap-3">
         <ActionLink href={`mailto:${personal.email}`} primary>

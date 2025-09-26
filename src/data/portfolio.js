@@ -9,7 +9,8 @@
     role: "Backend Developer | GCP Certified",
     headline:
       "Designing scalable REST APIs, intelligent approval systems, and cloud-native delivery pipelines for high-growth teams.",
-    location: "Gujarat, India",
+    location: "Anjar, Gujarat, India",
+    locationUrl: "https://maps.app.goo.gl/CvHczwMoEYGKDW919",
     availability: "Open to senior backend roles and platform engineering mandates.",
     phone: "+91 99136 92148",
     email: "vaibhav.anjar@gmail.com",
