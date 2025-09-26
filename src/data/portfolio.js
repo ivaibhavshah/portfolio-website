@@ -12,7 +12,7 @@
     location: "Anjar, Gujarat, India",
     locationUrl: "https://maps.app.goo.gl/CvHczwMoEYGKDW919",
     availability: "Open to senior backend roles and platform engineering mandates.",
-    phone: "+91 99136 92148",
+    phone: "+91 99136 29148",
     email: "vaibhav.anjar@gmail.com",
     linkedin: "https://www.linkedin.com/in/ivaibhavshah",
     github: "https://github.com/ivaibhavshah",
