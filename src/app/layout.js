@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import portfolio from "../data/portfolio";
-import GlobalLoader from "../components/GlobalLoader";
+import DramaticLoader from "../components/DramaticLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <GlobalLoader minMs={1200} />
+        <DramaticLoader minMs={1200} />
         {children}
       </body>
     </html>

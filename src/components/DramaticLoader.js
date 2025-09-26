@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function GlobalLoader({ minMs = 1200 }) {
+export default function DramaticLoader({ minMs = 1200 }) {
   const [visible, setVisible] = useState(true);
   const [remove, setRemove] = useState(false);
   const [msgIndex, setMsgIndex] = useState(0);
@@ -17,7 +17,6 @@ export default function GlobalLoader({ minMs = 1200 }) {
       const wait = Math.max(0, minMs - elapsed);
       const t = setTimeout(() => {
         setVisible(false);
-        // give time for fade-out before removing from DOM
         const t2 = setTimeout(() => setRemove(true), 350);
         return () => clearTimeout(t2);
       }, wait);
@@ -38,7 +37,6 @@ export default function GlobalLoader({ minMs = 1200 }) {
       window.addEventListener("load", onLoad, { once: true });
     }
 
-    // prevent scroll while loader visible
     prevOverflowRef.current = document.documentElement.style.overflow;
     document.documentElement.style.overflow = "hidden";
 
@@ -48,14 +46,13 @@ export default function GlobalLoader({ minMs = 1200 }) {
     };
   }, [minMs]);
 
-  // Restore scroll as soon as we hide the overlay
   useEffect(() => {
     if (!visible) {
       document.documentElement.style.overflow = prevOverflowRef.current || "";
     }
   }, [visible]);
 
-  // Cycle through dramatic messages and animated dots while loader is visible
+  // Cycle headline + subline and animated dots while visible
   useEffect(() => {
     if (!visible) return;
     const msgTimer = setInterval(() => setMsgIndex((i) => i + 1), 1100);
@@ -129,10 +126,11 @@ export default function GlobalLoader({ minMs = 1200 }) {
 
         <div className="text-center">
           <div className="text-xs font-semibold uppercase tracking-[0.35em] text-cyan-200">Initializing</div>
-          <div className="mt-2 text-lg font-medium text-slate-200">Building backend services…</div>
-          <div className="mt-1 text-sm text-slate-400">Warming caches, provisioning pipelines, checking health</div>
+          <div className="mt-2 text-xl font-semibold shimmer-text">{headline}</div>
+          <div className="mt-1 text-sm text-slate-400">{detail}{".".repeat(dotCount)}</div>
         </div>
       </div>
     </div>
   );
 }
+

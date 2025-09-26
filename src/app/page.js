@@ -454,11 +454,11 @@ function ContactPill({ icon, label, href }) {
       </svg>
     ),
     linkedin: (
-      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M4.983 3.5C4.983 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.483 1.12 2.483 2.5z" transform="translate(4 4)" />
-        <path d="M4.5 8h3v9h-3V8zM6 6.5A1.5 1.5 0 106 3.5 1.5 1.5 0 006 6.5z" transform="translate(2 2)" />
-        <path d="M9 8h2.8v1.3h.04c.39-.74 1.35-1.52 2.78-1.52 2.97 0 3.52 1.96 3.52 4.51V17h-3v-4.02c0-.96-.02-2.2-1.34-2.2-1.35 0-1.56 1.05-1.56 2.13V17H9V8z" />
+      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+      >
+        <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.3h.05c.53-1 1.82-2.3 3.75-2.3 4 0 4.75 2.63 4.75 6V24h-4v-7.5c0-1.8-.03-4.12-2.5-4.12s-2.88 1.95-2.88 4v7.62h-4V8z" />
       </svg>
+
     ),
     github: (
       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

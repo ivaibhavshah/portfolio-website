@@ -76,6 +76,20 @@ section[id] { scroll-margin-top: 56px; }
   }
 }
 
+/* Animated gradient shimmer for loader headline */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+.shimmer-text {
+  background-image: linear-gradient(90deg, #67e8f9, #a7f3d0, #67e8f9);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
 @keyframes beaconPulse {
   0%,
   100% {
