@@ -1,0 +1,137 @@
+0001: @import "tailwindcss";
+0002: 
+0003: :root {
+0004:   --background: #020617;
+0005:   --foreground: #f8fafc;
+0006: }
+0007: 
+0008: html,
+0009: body {
+0010:   width: 100%;
+0011:   min-height: 100%;
+0012:   background: var(--background);
+0013:   color: var(--foreground);
+0014:   overflow-x: hidden;
+0015: }
+0016: 
+0017: body {
+0018:   min-height: 100vh;
+0019:   font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+0020:   scroll-behavior: smooth;
+0021:   margin: 0;
+0022: }
+0023: 
+0024: /* Offset in-page anchor scrolling for fixed navbar (h-12 ~ 48px) */
+0025: section[id] { scroll-margin-top: 56px; }
+0026: 
+0027: * {
+0028:   box-sizing: border-box;
+0029: }
+0030: 
+0031: ::selection {
+0032:   background-color: rgba(56, 189, 248, 0.35);
+0033:   color: #0f172a;
+0034: }
+0035: 
+0036: @keyframes slowPulse {
+0037:   0%,
+0038:   100% {
+0039:     transform: scale(0.9);
+0040:     opacity: 0.35;
+0041:   }
+0042:   50% {
+0043:     transform: scale(1.05);
+0044:     opacity: 0.7;
+0045:   }
+0046: }
+0047: 
+0048: @keyframes drift {
+0049:   0% {
+0050:     transform: translate3d(0, 12px, 0) scale(0.9);
+0051:   }
+0052:   50% {
+0053:     transform: translate3d(0, -18px, 0) scale(1.05);
+0054:   }
+0055:   100% {
+0056:     transform: translate3d(0, 12px, 0) scale(0.9);
+0057:   }
+0058: }
+0059: 
+0060: @keyframes softGlow {
+0061:   0%,
+0062:   100% {
+0063:     box-shadow: 0 0 0 rgba(6, 182, 212, 0.0);
+0064:   }
+0065:   50% {
+0066:     box-shadow: 0 0 35px rgba(8, 145, 178, 0.35);
+0067:   }
+0068: }
+0069: 
+0070: @keyframes beaconPulse {
+0071:   0%,
+0072:   100% {
+0073:     transform: scale(1);
+0074:     opacity: 0.6;
+0075:   }
+0076:   50% {
+0077:     transform: scale(1.3);
+0078:     opacity: 1;
+0079:   }
+0080: }
+0081: 
+0082: .animate-slow-pulse {
+0083:   animation: slowPulse 14s ease-in-out infinite;
+0084: }
+0085: 
+0086: .animate-drift {
+0087:   animation: drift 16s ease-in-out infinite;
+0088: }
+0089: 
+0090: .animate-soft-glow {
+0091:   animation: softGlow 10s ease-in-out infinite;
+0092: }
+0093: 
+0094: .animate-beacon {
+0095:   animation: beaconPulse 2.6s ease-in-out infinite;
+0096: }
+0097: 
+0098: .scroll-reveal {
+0099:   opacity: 0;
+0100:   transform: translate3d(0, 32px, 0);
+0101:   transition: opacity 0.8s ease, transform 0.8s ease;
+0102:   transition-delay: var(--reveal-delay, 0ms);
+0103:   will-change: opacity, transform;
+0104: }
+0105: 
+0106: .scroll-reveal[data-variant="down"] {
+0107:   transform: translate3d(0, -32px, 0);
+0108: }
+0109: 
+0110: .scroll-reveal[data-variant="left"] {
+0111:   transform: translate3d(32px, 0, 0);
+0112: }
+0113: 
+0114: .scroll-reveal[data-variant="right"] {
+0115:   transform: translate3d(-32px, 0, 0);
+0116: }
+0117: 
+0118: .scroll-reveal.is-revealed {
+0119:   opacity: 1;
+0120:   transform: translate3d(0, 0, 0);
+0121: }
+0122: 
+0123: @media (prefers-reduced-motion: reduce) {
+0124:   .scroll-reveal {
+0125:     opacity: 1 !important;
+0126:     transform: none !important;
+0127:     transition: none !important;
+0128:   }
+0129: }
+0130: /* Hide scrollbars for swipe carousels */
+0131: .no-scrollbar::-webkit-scrollbar { display: none; }
+0132: .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+0133: @keyframes pixelBlast {
+0134:   0% { opacity: 1; transform: translate(0,0) scale(1); }
+0135:   80% { opacity: .65; }
+0136:   100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(.95); }
+0137: }

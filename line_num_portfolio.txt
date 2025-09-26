@@ -1,0 +1,211 @@
+0001: const portfolio = {
+0002:   meta: {
+0003:     title: "Vaibhav Shah | Backend & DevOps Engineer",
+0004:     description:
+0005:       "Backend developer and cloud engineer delivering resilient APIs, data platforms, and DevOps automation across AWS and Google Cloud.",
+0006:   },
+0007:   personal: {
+0008:     name: "Vaibhav Shah",
+0009:     role: "Backend Developer | GCP Certified",
+0010:     headline:
+0011:       "Designing scalable REST APIs, intelligent approval systems, and cloud-native delivery pipelines for high-growth teams.",
+0012:     location: "Gujarat, India",
+0013:     availability: "Open to senior backend roles and platform engineering mandates.",
+0014:     phone: "+91 99136 92148",
+0015:     email: "vaibhav.anjar@gmail.com",
+0016:     linkedin: "https://www.linkedin.com/in/ivaibhavshah",
+0017:     github: "https://github.com/ivaibhavshah",
+0018:     summary:
+0019:       "Experienced Backend Developer and DevOps Engineer with a foundation in JavaScript, Python, FASTAPI, Express.js, and modern DevOps practices. Proven ability to design, develop, and operate scalable REST APIs, implement dynamic approval systems, and integrate AI-powered solutions. Skilled in infrastructure automation, containerization, and cloud platforms like AWS and Google Cloud.",
+0020:   },
+0021:   contact: {
+0022:     email: "vaibhav.anjar@gmail.com",
+0023:     phone: "+91 99136 92148",
+0024:     linkedin: "https://www.linkedin.com/in/ivaibhavshah",
+0025:     github: "https://github.com/ivaibhavshah",
+0026:     calendar: null,
+0027:   },
+0028:   tech: {
+0029:     primary: [
+0030:       "Node.js & Express",
+0031:       "Python & FastAPI",
+0032:       "Google Cloud (GCE, Cloud Run, Pub/Sub)",
+0033:       "AWS (Lambda, SQS, API Gateway)",
+0034:     ],
+0035:     secondary: [
+0036:       "DevOps automation",
+0037:       "CI/CD pipelines",
+0038:       "Container orchestration",
+0039:       "Infrastructure as Code",
+0040:     ],
+0041:     tooling: ["Terraform", "Docker", "GitHub Actions", "Cloud Build", "PostgreSQL", "MySQL"],
+0042:   },
+0043:   metrics: [
+0044:     { label: "Team Members Led", value: "12+" },
+0045:     { label: "Project Managed", value: "5+" },
+0046:     { label: "Integrations developed & deployed", value: "15+" },
+0047:     { label: "Deployment frequency", value: "Weekly" },
+0048:     { label: "Incident recovery", value: "< 15 min" },
+0049:   ],
+0050:   skills: [
+0051:     {
+0052:       name: "Cloud Native APIs",
+0053:       description: "Event-driven and REST workloads hardened for latency and scale.",
+0054:       image:
+0055:         "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+0056:       focus: "Node.js / FastAPI",
+0057:     },
+0058:     {
+0059:       name: "DevOps Automation",
+0060:       description: "Delivery pipelines and observability that keep releases boring.",
+0061:       image:
+0062:         "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=900&q=80",
+0063:       focus: "Terraform / Docker / GitHub Actions",
+0064:     },
+0065:     {
+0066:       name: "Cloud Platforms",
+0067:       description: "Production experience across Google Cloud and AWS ecosystems.",
+0068:       image:
+0069:         "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=900&q=80",
+0070:       focus: "GCP / AWS / Hybrid workloads",
+0071:     },
+0072:     {
+0073:       name: "Data Engineering",
+0074:       description: "Designing reliable data flows, warehousing, and analytics visibility.",
+0075:       image:
+0076:         "https://images.unsplash.com/photo-1483478550801-ceba5fe50e8e?auto=format&fit=crop&w=900&q=80",
+0077:       focus: "PostgreSQL / MySQL / BigQuery",
+0078:     },
+0079:   ],
+0080:   experience: [
+0081:     {
+0082:       company: "AeonX Digital",
+0083:       role: "Backend Developer",
+0084:       period: "April 2025 - Present",
+0085:       duration: "6 months",
+0086:       location: "Bhuj, Gujarat, India",
+0087:       impact: [
+0088:         "Leading and managing projects for Web Development.",
+0089:         "Scaled approval workflows with AI-assisted routing and audit-ready observability dashboards.",
+0090:         "Championed incident runbooks and SLOs that keep recovery under 15 minutes.",
+0091:       ],
+0092:       stack: ["Node.js", "Express", "GCP", "PostgreSQL", "BigQuery"],
+0093:     },
+0094:     {
+0095:       company: "AeonX Digital",
+0096:       role: "Jr. Backend Developer",
+0097:       period: "August 2024 - March 2025",
+0098:       duration: "8 months",
+0099:       location: "Bhuj, Gujarat, India",
+0100:       impact: [
+0101:         "Built internal tooling for data reconciliation and KPI visualisation.",
+0102:         "Delivered greenfield API platform powering partner onboarding and billing.",
+0103:         "Introduced automated testing and CI workflows that cut release time by 40%.",
+0104:       ],
+0105:       stack: ["Node.js", "FastAPI", "AWS", "Docker"],
+0106:     },
+0107:     {
+0108:       company: "AeonX Digital",
+0109:       role: "Trainee Developer",
+0110:       period: "August 2023 - July 2024",
+0111:       duration: "1 year",
+0112:       location: "Bhuj, Gujarat, India",
+0113:       impact: [
+0114:         "Integrated third-party services with resilient retry and dead-letter patterns.",
+0115:         "Containerised legacy workloads and migrated them to managed compute.",
+0116:         "Provided on-call support and playbooks for critical production services.",
+0117:       ],
+0118:       stack: ["Node.js", "Python", "MySQL", "Docker"],
+0119:     },
+0120:     {
+0121:       company: "TechSture Technologies India Pvt. Ltd.",
+0122:       role: "Trainee Database Engineer",
+0123:       period: "February 2023 - May 2023",
+0124:       duration: "4 months",
+0125:       location: "Ahmedabad, Gujarat, India",
+0126:       impact: [
+0127:         "Designed database schemas for analytics workloads with performance guardrails.",
+0128:         "Automated ETL routines and validation for daily reporting.",
+0129:         "Collaborated with backend squad to expose data services securely.",
+0130:       ],
+0131:       stack: ["MS SQL", "Python", "Arduino"],
+0132:     },
+0133:   ],
+0134:   projects: [
+0135:     {
+0136:       name: "Red Activity",
+0137:       description: "A Stock and Invoicing mobile app solution for Retailers.",
+0138:       problem: "Slow and error-prone Stock Maintenance and Invoicing.",
+0139:       solution:
+0140:         "Implemented a mobile application solution for real-time stock maintenance and invoicing.",
+0141:       impact: "Cut decision latency by 55% and delivered audit-ready trails for regulators.",
+0142:       stack: ["Node.js", "Hostinger", "MySQL"],
+0143:       link: null,
+0144:     },
+0145:     {
+0146:       name: "Terraform Templates with AWS",
+0147:       description: "Terraform and CI templates standardising cloud environment provisioning.",
+0148:       problem: "Manual deployments took 3 days to complete.",
+0149:       solution: "Built reusable Terraform modules with AWS CI/CD pipelines for automated deployments and ECS cluster management with S3 Static Hosting with workspace Environments.",
+0150:       impact: "Reduced environment bring-up from 3 days to under 3 hours across teams.",
+0151:       stack: ["Terraform", "AWS CodeBuild-> CodeDeploy", "ECS", "Docker"],
+0152:       link: "https://github.com/ivaibhavshah/terraform_infra_practice.git",
+0153:     },
+0154:     {
+0155:       name: "AeonXus Portal",
+0156:       description: "A Complete in-house CRM solution for AeonX Digital",
+0157:       problem: "Leaders lacked real-time visibility into throughput and utilisation of resources.",
+0158:       solution: "Implemented solution which includes Sales, Marketing, and HR modules with ESS integration.",
+0159:       impact: "Streamlined operations and increased efficiency by 30%.",
+0160:       stack: ["MySQL", "Node.js", "AWS Services", "Docker"],
+0161:       link: null,
+0162:     },
+0163:   ],
+0164:   certifications: [
+0165:     {
+0166:       name: "Professional Cloud Developer",
+0167:       issuer: "Google Cloud",
+0168:       year: "2025",
+0169:       badge: "pcd.png",
+0170:       credentialId: null,
+0171:       link: "https://www.credly.com/badges/cb2e72ab-0729-4b3f-abf5-3e9e371c1077/public_url",
+0172:     },
+0173:     {
+0174:       name: "Professional Cloud Architect",
+0175:       issuer: "Google Cloud",
+0176:       year: "2025",
+0177:       badge: "pca.png",
+0178:       credentialId: null,
+0179:       link: "https://www.credly.com/badges/494bc54f-2e57-43eb-87f7-b0b357543812/public_url",
+0180:     },
+0181:     {
+0182:       name: "Associate Cloud Engineer",
+0183:       issuer: "Google Cloud",
+0184:       year: "2024",
+0185:       badge: "ace.png",
+0186:       credentialId: null,
+0187:       link: "https://www.credly.com/badges/d24c6027-1119-42a2-9f77-ae6851ee12f3/public_url",
+0188:     },
+0189:     {
+0190:       name: "GitHub Foundations",
+0191:       issuer: "GitHub",
+0192:       year: "2024",
+0193:       badge: "github-foundations.png",
+0194:       credentialId: null,
+0195:       link: "https://www.credly.com/badges/dd7c4714-de4e-4448-a316-1aa4fa5ca854/public_url",
+0196:     },
+0197:     {
+0198:       name: "HackerRank Problem Solving (Basic)",
+0199:       issuer: "HackerRank",
+0200:       year: "2023",
+0201:       badge: "hackerrank.png",
+0202:       credentialId: null,
+0203:       link: "https://www.hackerrank.com/",
+0204:     },
+0205:   ],
+0206: };
+0207: 
+0208: export default portfolio;
+0209: 
+0210: 
+0211: 

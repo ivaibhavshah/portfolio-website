@@ -1,0 +1,505 @@
+0001: import Image from "next/image";
+0002: import ScrollReveal from "../components/ScrollReveal";
+0003: 
+0004: import portfolio from "../data/portfolio";
+0005: 
+0006: export default function Home() {
+0007:   return (
+0008:     <div>
+0009:       <AnimatedBackdrop />
+0010:       <Navbar />
+0011:       <main className="relative mx-auto flex max-w-6xl flex-col gap-24 px-6 pb-24 pt-20 sm:px-10 lg:px-16">
+0012:         <Hero />
+0013:         <Skills />
+0014:         <Projects />
+0015:         <Experience />
+0016:         <Certifications />
+0017:         <CallToAction />
+0018:       </main>
+0019:     </div>
+0020:   );
+0021: }
+0022: 
+0023: 
+0024: function Navbar() {
+0025:   const links = [
+0026:     { id: "about", label: "About" },
+0027:     { id: "skills", label: "Skills" },
+0028:     { id: "projects", label: "Projects" },
+0029:     { id: "experience", label: "Experience" },
+0030:     { id: "certifications", label: "Certs" },
+0031:     { id: "contact", label: "Contact" },
+0032:   ];
+0033:   return (
+0034:     <nav className="fixed top-0 inset-x-0 z-50">
+0035:       <div className="flex h-12 w-full items-center justify-between border-b border-slate-800/60 bg-slate-950/70 px-4 backdrop-blur sm:px-6">
+0036:         <a href="#about" className="text-sm font-semibold tracking-wide text-cyan-200">VS</a>
+0037:         <div className="flex items-center gap-2">
+0038:           {links.map((l) => (
+0039:             <a key={l.id} href={`#${l.id}`} className="rounded-full border border-slate-700/60 bg-slate-900/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-100">
+0040:               {l.label}
+0041:             </a>
+0042:           ))}
+0043:         </div>
+0044:       </div>
+0045:     </nav>
+0046:   );
+0047: } function AnimatedBackdrop() {
+0048:   return (
+0049:     <div className="pointer-events-none absolute inset-0">
+0050:       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.18),transparent_60%)]" />
+0051:       <div className="absolute -top-48 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/10 blur-3xl animate-slow-pulse" />
+0052:       <div className="absolute -bottom-32 right-0 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl animate-drift" />
+0053:     </div>
+0054:   );
+0055: }
+0056: 
+0057: function Hero() {
+0058:   const { personal, tech, metrics } = portfolio;
+0059: 
+0060:   return (<ScrollReveal as="section" id="about" className="space-y-12">
+0061:     <ScrollReveal as="div" className="space-y-10" variant="up">
+0062:       <div className="inline-flex items-center gap-3 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100">
+0063:         <span className="relative flex h-2 w-2 items-center justify-center">
+0064:           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/40" />
+0065:           <span className="relative h-2 w-2 rounded-full bg-emerald-400 animate-beacon" />
+0066:         </span>
+0067:         Backend and DevOps specialist
+0068:       </div>
+0069:       <div className="space-y-5">
+0070:         <h1 className="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">{personal.name}</h1>
+0071:         <p className="text-lg text-cyan-100/80 sm:text-xl">{personal.role}</p>
+0072:         <p className="max-w-2xl text-base text-slate-300 sm:text-lg">{personal.headline}</p>
+0073:         <p className="max-w-3xl text-sm text-slate-400 sm:text-base">{personal.summary}</p>
+0074:       </div>
+0075:       <div className="flex flex-wrap gap-3 text-sm text-slate-300">
+0076:         <ContactPill icon="phone" label={personal.phone} href={`tel:${personal.phone.replace(/\s+/g, "")}`} />
+0077:         <ContactPill icon="mail" label={personal.email} href={`mailto:${personal.email}`} />
+0078:         <ContactPill icon="map" label={personal.location} />
+0079:       </div>
+0080:       <div className="flex flex-wrap gap-3">
+0081:         <ActionLink href={`mailto:${personal.email}`} primary>
+0082:           Start a conversation
+0083:         </ActionLink>
+0084:         <ActionLink href={personal.linkedin}>LinkedIn</ActionLink>
+0085:         <ActionLink href={personal.github}>GitHub</ActionLink>
+0086:       </div>
+0087:       <div className="flex flex-wrap gap-2">
+0088:         {tech.primary.map((item) => (
+0089:           <span key={item} className="rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-100 backdrop-blur">
+0090:             {item}
+0091:           </span>
+0092:         ))}
+0093:       </div>
+0094:     </ScrollReveal>
+0095: 
+0096:     <div className="grid gap-4 sm:grid-cols-3">
+0097:       {metrics.map((metric, index) => (
+0098:         <ScrollReveal key={metric.label} delay={160 + index * 90} className="h-full" variant="up">
+0099:           <MetricBadge metric={metric} />
+0100:         </ScrollReveal>
+0101:       ))}
+0102:     </div>
+0103:   </ScrollReveal>
+0104:   );
+0105: }
+0106: 
+0107: function Skills() {
+0108:   const { skills } = portfolio;
+0109: 
+0110:   return (<ScrollReveal as="section" id="skills" className="space-y-10">
+0111:     <SectionHeading
+0112:       eyebrow="Skill map"
+0113:       title="Where backend engineering meets platform thinking"
+0114:       description="Every skill block is backed by real delivery stories across banking, analytics, and automation."
+0115:     />
+0116:     <div className="grid gap-6 md:grid-cols-2">
+0117:       {skills.map((skill, index) => (
+0118:         <ScrollReveal
+0119:           key={skill.name}
+0120:           as="article"
+0121:           className="group relative overflow-hidden rounded-3xl border border-slate-800/80 bg-slate-900/70 shadow-[0_0_45px_rgba(8,145,178,0.15)] transition duration-500 hover:-translate-y-2 hover:border-cyan-400/60 hover:shadow-[0_25px_65px_rgba(8,145,178,0.26)]"
+0122:           delay={index * 90}
+0123:           variant={index % 2 === 0 ? "left" : "right"}
+0124:         >
+0125:           <div
+0126:             className="absolute inset-0 opacity-60 transition duration-500 group-hover:opacity-80"
+0127:             style={{ backgroundImage: `url(${skill.image})`, backgroundSize: "cover", backgroundPosition: "center" }}
+0128:           />
+0129:           <div className="relative flex h-full flex-col justify-between gap-6 bg-gradient-to-br from-slate-950/85 via-slate-950/75 to-slate-950/90 p-6">
+0130:             <div className="space-y-3">
+0131:               <h3 className="text-xl font-semibold text-slate-50">{skill.name}</h3>
+0132:               <p className="text-sm text-slate-300">{skill.description}</p>
+0133:             </div>
+0134:             <div className="inline-flex w-fit items-center gap-2 rounded-full border border-cyan-400/40 bg-slate-950/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-100">
+0135:               {skill.focus}
+0136:             </div>
+0137:           </div>
+0138:           <div className="pointer-events-none absolute -right-16 bottom-0 h-24 w-24 translate-y-1/3 rounded-full bg-cyan-400/40 blur-3xl transition duration-500 group-hover:translate-y-0 group-hover:opacity-80 animate-drift" />
+0139:         </ScrollReveal>
+0140:       ))}
+0141:     </div>
+0142:   </ScrollReveal>
+0143:   );
+0144: }
+0145: 
+0146: function Projects() {
+0147:   const { projects } = portfolio;
+0148: 
+0149:   return (<ScrollReveal as="section" id="projects" className="space-y-10">
+0150:     <SectionHeading
+0151:       eyebrow="Case studies"
+0152:       title="Projects engineered for uptime"
+0153:       description="Systems that keep customer promises even when integrations, data volume, and compliance requirements grow fast."
+0154:     />
+0155:     <div className="grid gap-6 md:grid-cols-2">
+0156:       {projects.map((project, index) => (
+0157:         <ScrollReveal
+0158:           key={project.name}
+0159:           as="article"
+0160:           className="group relative overflow-hidden rounded-3xl border border-slate-800/80 bg-slate-900/60 p-6 transition duration-500 hover:-translate-y-2 hover:border-cyan-400/60 hover:shadow-[0_0_55px_rgba(8,145,178,0.25)]"
+0161:           delay={index * 90}
+0162:           variant={index % 2 === 0 ? "left" : "right"}
+0163:         >
+0164:           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.16),transparent_65%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+0165:           <div className="relative space-y-4">
+0166:             <div className="flex items-center justify-between">
+0167:               <h3 className="text-xl font-semibold text-slate-50">{project.name}</h3>
+0168:               <span className="text-xs uppercase tracking-[0.3em] text-cyan-200">Backend</span>
+0169:             </div>
+0170:             <p className="text-sm text-slate-400">{project.description}</p>
+0171:             <div className="grid gap-3 text-sm text-slate-300">
+0172:               <Detail label="Problem" value={project.problem} />
+0173:               <Detail label="Solution" value={project.solution} />
+0174:               <Detail label="Impact" value={project.impact} />
+0175:             </div>
+0176:             <div className="flex flex-wrap gap-2 pt-2">
+0177:               {project.stack.map((item) => (
+0178:                 <span key={item} className="rounded-md border border-slate-700/60 bg-slate-950/60 px-3 py-1 text-xs text-slate-300">
+0179:                   {item}
+0180:                 </span>
+0181:               ))}
+0182:             </div>
+0183:             {project.link ? (
+0184:               <ActionLink href={project.link} small>
+0185:                 View Project
+0186:               </ActionLink>
+0187:             ) : null}
+0188:           </div>
+0189:         </ScrollReveal>
+0190:       ))}
+0191:     </div>
+0192:   </ScrollReveal>
+0193:   );
+0194: }
+0195: 
+0196: function Experience() {
+0197:   const { experience } = portfolio;
+0198: 
+0199:   const groupedMap = experience.reduce((acc, item) => {
+0200:     const key = item.company;
+0201:     if (!acc[key]) {
+0202:       acc[key] = { company: item.company, location: item.location, roles: [] };
+0203:     }
+0204:     acc[key].roles.push(item);
+0205:     return acc;
+0206:   }, {});
+0207: 
+0208:   const groups = Object.values(groupedMap);
+0209: 
+0210:   return (<ScrollReveal as="section" id="experience" className="space-y-10">
+0211:     <SectionHeading
+0212:       eyebrow="Experience"
+0213:       title="Growth within organizations"
+0214:       description="Promotions and role progression grouped by company to reflect impact and continuity."
+0215:     />
+0216:     <div className="relative border-l border-slate-800/70 pl-10">
+0217:       {groups.map((group, idx) => (
+0218:         <ScrollReveal
+0219:           key={group.company}
+0220:           as="article"
+0221:           className="relative pb-12 last:pb-0"
+0222:           delay={idx * 110}
+0223:           variant="up"
+0224:         >
+0225:           <span className="absolute left-[-58px] top-1 flex h-4 w-4 items-center justify-center">
+0226:             <span className="absolute h-4 w-4 rounded-full border border-slate-800 bg-slate-950" />
+0227:             <span className="relative h-2 w-2 rounded-full bg-cyan-400 animate-beacon" />
+0228:           </span>
+0229: 
+0230:           <div className="flex flex-wrap items-start justify-between gap-4">
+0231:             <div>
+0232:               <h3 className="text-lg font-semibold text-slate-50">{group.company}</h3>
+0233:               <p className="text-sm text-slate-400">{group.location}</p>
+0234:             </div>
+0235:             <div className="text-right text-xs uppercase tracking-[0.3em] text-slate-500">
+0236:               <div>{group.roles[0]?.period}</div>
+0237:               {/* <div className="mt-1 text-slate-400">Latest role</div> */}
+0238:             </div>
+0239:           </div>
+0240: 
+0241:           <div className="mt-5 space-y-5">
+0242:             {group.roles.map((role) => (
+0243:               <div
+0244:                 key={`${group.company}-${role.role}-${role.period}`}
+0245:                 className="rounded-2xl border border-slate-800/70 bg-slate-950/60 p-5"
+0246:               >
+0247:                 <div className="flex items-start justify-between gap-4">
+0248:                   <div className="text-base font-semibold text-slate-50">{role.role}</div>
+0249:                   <div className="text-right text-xs uppercase tracking-[0.3em] text-slate-500">
+0250:                     <div>{role.period}</div>
+0251:                     <div className="mt-1 text-slate-400">{role.duration}</div>
+0252:                   </div>
+0253:                 </div>
+0254:                 <ul className="mt-3 space-y-2 text-sm text-slate-300">
+0255:                   {role.impact.map((point) => (
+0256:                     <li key={point} className="flex gap-3">
+0257:                       <span className="mt-1 h-2 w-2 rounded-full bg-cyan-400/70" />
+0258:                       <span>{point}</span>
+0259:                     </li>
+0260:                   ))}
+0261:                 </ul>
+0262:                 <div className="mt-4 flex flex-wrap gap-2">
+0263:                   {role.stack.map((techItem) => (
+0264:                     <span
+0265:                       key={techItem}
+0266:                       className="rounded-md border border-slate-700/60 bg-slate-950/60 px-3 py-1 text-xs text-slate-300"
+0267:                     >
+0268:                       {techItem}
+0269:                     </span>
+0270:                   ))}
+0271:                 </div>
+0272:               </div>
+0273:             ))}
+0274:           </div>
+0275:         </ScrollReveal>
+0276:       ))}
+0277:     </div>
+0278:   </ScrollReveal>
+0279:   );
+0280: }
+0281: 
+0282: function Certifications() {
+0283:   const { certifications } = portfolio;
+0284: 
+0285:   return (<ScrollReveal as="section" id="certifications" className="space-y-10">
+0286:     <SectionHeading
+0287:       eyebrow="Badges"
+0288:       title="Certifications and Achievements"
+0289:       description="A concise grid of credentials with official badges where available."
+0290:     />
+0291:     <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+0292:       {certifications.map((cert, index) => (
+0293:         <ScrollReveal key={cert.name} delay={index * 80} variant="up">
+0294:           <div className="group relative rounded-3xl border border-slate-800/70 bg-slate-900/60 p-5 transition duration-300 hover:-translate-y-1.5 hover:border-cyan-400/60 hover:shadow-[0_25px_80px_rgba(8,145,178,0.20)]">
+0295:             <div className="flex items-start gap-4">
+0296:               <div className="relative grid h-16 w-16 shrink-0 place-items-center rounded-full border border-cyan-400/40 bg-slate-950/70">
+0297:                 {cert.badge ? (
+0298:                   <img src={cert.badge} alt={`${cert.issuer} badge`} className="h-12 w-12 object-contain" />
+0299:                 ) : (
+0300:                   <svg className="h-10 w-10 text-cyan-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+0301:                     <path d="M12 2l3 5 5 3-5 3-3 5-3-5-5-3 5-3 3-5z" />
+0302:                   </svg>
+0303:                 )}
+0304:                 <div className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-cyan-400/25 via-transparent to-emerald-400/20 blur-xl" />
+0305:               </div>
+0306:               <div className="min-w-0 flex-1">
+0307:                 <div className="flex items-center justify-between gap-3">
+0308:                   <h3 className="truncate text-base font-semibold text-slate-50">{cert.name}</h3>
+0309:                   <span className="rounded-full border border-slate-700/70 bg-slate-950/60 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-400">
+0310:                     {cert.year}
+0311:                   </span>
+0312:                 </div>
+0313:                 <p className="text-sm text-slate-400">{cert.issuer}</p>
+0314:                 {cert.credentialId ? (
+0315:                   <div className="mt-2">
+0316:                     <div className="text-[10px] uppercase tracking-[0.25em] text-slate-500">Credential ID</div>
+0317:                     <div className="mt-1 truncate text-sm text-slate-300">{cert.credentialId}</div>
+0318:                   </div>
+0319:                 ) : null}
+0320:                 {cert.link ? (
+0321:                   <div className="mt-4">
+0322:                     <a href={cert.link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-full border border-slate-700/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-slate-200 transition hover:border-cyan-400/60 hover:text-cyan-100">
+0323:                       Verify credential
+0324:                     </a>
+0325:                   </div>
+0326:                 ) : null}
+0327:               </div>
+0328:             </div>
+0329:           </div>
+0330:         </ScrollReveal>
+0331:       ))}
+0332:     </div>
+0333:   </ScrollReveal>
+0334:   );
+0335: }
+0336: 
+0337: 
+0338: function CallToAction() {
+0339:   const { contact } = portfolio;
+0340:   const callHref = contact.phone ? `tel:${contact.phone.replace(/\s+/g, "")}` : null;
+0341: 
+0342:   return (<ScrollReveal as="section" id="contact"
+0343:     className="rounded-3xl border border-cyan-400/40 bg-gradient-to-r from-slate-900/80 via-slate-900/70 to-slate-950/80 p-10 shadow-[0_0_60px_rgba(8,145,178,0.25)]"
+0344:     variant="up"
+0345:     delay={100}
+0346:   >
+0347:     <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+0348:       <div className="space-y-4">
+0349:         <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Next build</span>
+0350:         <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Ship reliable backend infrastructure together</h2>
+0351:         <p className="max-w-2xl text-sm text-slate-300 sm:text-base">
+0352:           From integrations and event pipelines to observability and platform automation, I help teams deliver uptime as a feature.
+0353:         </p>
+0354:       </div>
+0355:       <div className="flex flex-col gap-3 sm:flex-row">
+0356:         <ActionLink href={`mailto:${contact.email}`} primary>
+0357:           Book a discovery call
+0358:         </ActionLink>
+0359:         {callHref ? <ActionLink href={callHref}>Call directly</ActionLink> : null}
+0360:       </div>
+0361:     </div>
+0362:   </ScrollReveal>
+0363:   );
+0364: }
+0365: 
+0366: function SectionHeading({ eyebrow, title, description }) {
+0367:   return (
+0368:     <div className="max-w-3xl space-y-3">
+0369:       <span className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">{eyebrow}</span>
+0370:       <h2 className="text-3xl font-semibold text-slate-50 sm:text-4xl">{title}</h2>
+0371:       {description ? <p className="text-base text-slate-400">{description}</p> : null}
+0372:     </div>
+0373:   );
+0374: }
+0375: 
+0376: function Detail({ label, value }) {
+0377:   return (
+0378:     <div>
+0379:       <div className="text-xs uppercase tracking-[0.3em] text-slate-500">{label}</div>
+0380:       <p className="mt-1 text-sm text-slate-300">{value}</p>
+0381:     </div>
+0382:   );
+0383: }
+0384: 
+0385: function CardLine({ label, values }) {
+0386:   return (
+0387:     <div className="rounded-2xl border border-slate-800/70 bg-slate-950/60 px-5 py-4">
+0388:       <div className="text-xs uppercase tracking-[0.3em] text-slate-500">{label}</div>
+0389:       <div className="mt-2 flex flex-wrap gap-2 text-sm text-slate-200">
+0390:         {values.map((item) => (
+0391:           <span key={item} className="rounded-md bg-slate-900/80 px-2 py-1 text-slate-300">
+0392:             {item}
+0393:           </span>
+0394:         ))}
+0395:       </div>
+0396:     </div>
+0397:   );
+0398: }
+0399: 
+0400: function MetricBadge({ metric }) {
+0401:   return (
+0402:     <div className="relative overflow-hidden rounded-2xl border border-slate-800/70 bg-slate-950/70 p-5 transition duration-300 hover:border-cyan-400/60 hover:shadow-[0_0_35px_rgba(8,145,178,0.2)] animate-soft-glow">
+0403:       <div className="pointer-events-none absolute -right-16 top-0 h-24 w-24 rounded-full bg-cyan-400/30 blur-3xl" />
+0404:       <div className="relative space-y-2">
+0405:         <div className="text-2xl font-semibold text-white">{metric.value}</div>
+0406:         <div className="text-xs uppercase tracking-[0.3em] text-slate-500">{metric.label}</div>
+0407:       </div>
+0408:     </div>
+0409:   );
+0410: }
+0411: 
+0412: function ActionLink({ href, children, primary = false, small = false }) {
+0413:   const isExternal = href.startsWith("http");
+0414:   const base = small
+0415:     ? "inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] transition"
+0416:     : "inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition";
+0417:   const palette = primary
+0418:     ? "bg-cyan-400 text-slate-950 shadow-[0_0_35px_rgba(8,145,178,0.35)] hover:bg-cyan-300"
+0419:     : "border border-slate-700/70 text-slate-200 hover:border-cyan-400/60 hover:text-cyan-100";
+0420:   const className = `${base} ${palette}`;
+0421:   const relProps = isExternal ? { target: "_blank", rel: "noreferrer" } : {};
+0422: 
+0423:   return (
+0424:     <a href={href} className={className} {...relProps}>
+0425:       {children}
+0426:       {isExternal ? <ArrowUpRightIcon className={small ? "h-3 w-3" : "h-4 w-4"} /> : null}
+0427:     </a>
+0428:   );
+0429: }
+0430: 
+0431: function ContactPill({ icon, label, href }) {
+0432:   const iconMap = {
+0433:     phone: (
+0434:       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+0435:         <path
+0436:           d="M4.5 5.25a2 2 0 012-2h1.4c.8 0 1.5.5 1.7 1.2l.9 3A2 2 0 0110 9.25l-1.1.9a12.6 12.6 0 006 6l.9-1.1a2 2 0 011.8-.5l3 .9c.7.2 1.2.9 1.2 1.7v1.4a2 2 0 01-2 2H18A15.5 15.5 0 014.5 5.25z"
+0437:           strokeLinecap="round"
+0438:           strokeLinejoin="round"
+0439:         />
+0440:       </svg>
+0441:     ),
+0442:     mail: (
+0443:       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+0444:         <path d="M4.5 5.75A2.75 2.75 0 017.25 3h9.5A2.75 2.75 0 0119.5 5.75v12.5A2.75 2.75 0 0116.75 21h-9.5A2.75 2.75 0 014.5 18.25V5.75z" />
+0445:         <path d="M5 6l7 6 7-6" strokeLinecap="round" strokeLinejoin="round" />
+0446:       </svg>
+0447:     ),
+0448:     map: (
+0449:       <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+0450:         <path d="M12 21s-6-4.5-6-10a6 6 0 1112 0c0 5.5-6 10-6 10z" strokeLinecap="round" strokeLinejoin="round" />
+0451:         <circle cx="12" cy="11" r="2.5" />
+0452:       </svg>
+0453:     ),
+0454:   };
+0455: 
+0456:   const baseClass = "group inline-flex items-center gap-2 rounded-full border border-slate-700/70 bg-slate-900/70 px-4 py-2 text-xs font-medium uppercase tracking-[0.3em] text-slate-300 transition hover:-translate-y-0.5 hover:border-cyan-400/60 hover:text-cyan-100";
+0457: 
+0458:   const Label = () => (
+0459:     <span className="overflow-hidden whitespace-nowrap opacity-0 max-w-0 -translate-x-1 transition-all duration-300 group-hover:max-w-[20rem] group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:max-w-[20rem] group-focus-visible:opacity-100 group-focus-visible:translate-x-0">
+0460:       {label}
+0461:     </span>
+0462:   );
+0463: 
+0464:   if (href) {
+0465:     return (
+0466:       <a href={href} className={baseClass}>
+0467:         {iconMap[icon]}
+0468:         <Label />
+0469:       </a>
+0470:     );
+0471:   }
+0472: 
+0473:   return (
+0474:     <span className={baseClass}>
+0475:       {iconMap[icon]}
+0476:       <Label />
+0477:     </span>
+0478:   );
+0479: }
+0480: 
+0481: function ArrowUpRightIcon({ className }) {
+0482:   return (
+0483:     <svg className={className} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+0484:       <path d="M5 15L15 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+0485:       <path d="M7 5H15V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+0486:     </svg>
+0487:   );
+0488: }
+0489: 
+0490: 
+0491: 
+0492: 
+0493: 
+0494: 
+0495: 
+0496: 
+0497: 
+0498: 
+0499: 
+0500: 
+0501: 
+0502: 
+0503: 
+0504: 
+0505: 
