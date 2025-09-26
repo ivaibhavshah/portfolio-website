@@ -119,7 +119,7 @@
       stack: ["Node.js", "Python", "MySQL", "Docker"],
     },
     {
-      company: "TechSture Technologies India Pvt. Ltd.",
+      company: "Techsture Technologies India Pvt. Ltd.",
       role: "Trainee Database Engineer",
       period: "February 2023 - May 2023",
       duration: "4 months",
