@@ -28,6 +28,15 @@ section[id] { scroll-margin-top: 56px; }
   box-sizing: border-box;
 }
 
+/* Hide scrollbar utility while preserving scroll */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;   /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;            /* Chrome/Safari/Opera */
+}
+
 ::selection {
   background-color: rgba(56, 189, 248, 0.35);
   color: #0f172a;

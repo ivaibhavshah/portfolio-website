@@ -32,9 +32,9 @@ function Navbar() {
   ];
   return (
     <nav className="fixed top-0 inset-x-0 z-50">
-      <div className="flex h-12 w-full items-center justify-between border-b border-slate-800/60 bg-slate-950/70 px-4 backdrop-blur sm:px-6">
+      <div className="flex h-12 w-full items-center justify-start gap-3 border-b border-slate-800/60 bg-slate-950/70 px-4 shadow-lg backdrop-blur sm:gap-6 sm:px-6">
         <a href="#about" className="text-sm font-semibold tracking-wide text-cyan-200">VS</a>
-        <div className="flex items-center gap-2">
+        <div className="ml-2 flex flex-1 min-w-0 items-center gap-2 overflow-x-auto whitespace-nowrap no-scrollbar sm:ml-auto sm:flex-none sm:overflow-visible">
           {links.map((l) => (
             <a key={l.id} href={`#${l.id}`} className="rounded-full border border-slate-700/60 bg-slate-900/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-slate-300 transition hover:border-cyan-400/60 hover:text-cyan-100">
               {l.label}
@@ -500,10 +500,6 @@ function ArrowUpRightIcon({ className }) {
     </svg>
   );
 }
-
-
-
-
 
 
 
