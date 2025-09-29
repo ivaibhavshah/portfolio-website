@@ -21,7 +21,7 @@
   },
   contact: {
     email: "vaibhav.anjar@gmail.com",
-    phone: "+91 99136 92148",
+    phone: "+91 99136 29148",
     linkedin: "https://www.linkedin.com/in/ivaibhavshah",
     github: "https://github.com/ivaibhavshah",
     calendar: null,
