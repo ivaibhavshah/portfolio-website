@@ -1,4 +1,4 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import ScrollReveal from "../components/ScrollReveal";
 
 import portfolio from "../data/portfolio";
@@ -16,6 +16,7 @@ export default function Home() {
         <Certifications />
         <CallToAction />
       </main>
+      <Footer />
     </div>
   );
 }
@@ -508,3 +509,26 @@ function ArrowUpRightIcon({ className }) {
 
 
 
+function Footer() {
+  return (
+    <footer className="mt-24 border-t border-slate-800/60 bg-slate-950/80 py-12 backdrop-blur">
+      <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-16">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex flex-col items-center gap-2 md:items-start">
+            <span className="text-lg font-bold tracking-tight text-slate-50">{portfolio.personal.name}</span>
+            <p className="text-sm text-slate-400">{portfolio.personal.role}</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-400">
+            <a href="#about" className="transition hover:text-cyan-400">About</a>
+            <a href="#projects" className="transition hover:text-cyan-400">Projects</a>
+            <a href="/privacy-policy" className="text-cyan-400/80 transition hover:text-cyan-400">Privacy Policy</a>
+          </div>
+        </div>
+        <div className="mt-12 border-t border-slate-800/40 pt-8 text-center text-xs text-slate-500">
+          <p>&copy; {new Date().getFullYear()} {portfolio.personal.name}. All rights reserved.</p>
+          <p className="mt-2 uppercase tracking-widest opacity-50">Built with Next.js & Tailwind</p>
+        </div>
+      </div>
+    </footer>
+  );
+}
