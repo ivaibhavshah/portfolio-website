@@ -1,5 +1,6 @@
 import portfolio from "../../data/portfolio";
 import ScrollReveal from "../../components/ScrollReveal";
+import Link from "next/link";
 
 export const metadata = {
   title: `Privacy Policy | ${portfolio.personal.name}`,
@@ -12,13 +13,13 @@ export default function PrivacyPolicy() {
       <AnimatedBackdrop />
       <nav className="fixed top-0 inset-x-0 z-50">
         <div className="flex h-12 w-full items-center justify-between border-b border-slate-800/60 bg-slate-950/70 px-4 shadow-lg backdrop-blur sm:px-6">
-          <a href="/" className="text-sm font-semibold tracking-wide text-cyan-200 flex items-center gap-2">
+          <Link href="/" className="text-sm font-semibold tracking-wide text-cyan-200 flex items-center gap-2">
             <svg className="h-4 w-4" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M15 10H5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M10 15L5 10L10 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
             Back to Portfolio
-          </a>
+          </Link>
           <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-500">Legal Document</div>
         </div>
       </nav>
@@ -35,7 +36,7 @@ export default function PrivacyPolicy() {
             <section className="space-y-4">
               <h2 className="text-2xl font-semibold text-slate-100">1. Introduction</h2>
               <p className="text-slate-300 leading-relaxed">
-                This Privacy Policy describes how your personal information is collected, used, and shared when you use applications developed by <strong>{portfolio.personal.name}</strong> ("we", "us", or "our"). We are committed to protecting your privacy and ensuring a secure experience.
+                This Privacy Policy describes how your personal information is collected, used, and shared when you use applications developed by <strong>{portfolio.personal.name}</strong> (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;). We are committed to protecting your privacy and ensuring a secure experience.
               </p>
             </section>
 

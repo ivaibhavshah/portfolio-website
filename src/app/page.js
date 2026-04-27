@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "../components/ScrollReveal";
 
 import portfolio from "../data/portfolio";
@@ -521,7 +522,7 @@ function Footer() {
           <div className="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-400">
             <a href="#about" className="transition hover:text-cyan-400">About</a>
             <a href="#projects" className="transition hover:text-cyan-400">Projects</a>
-            <a href="/privacy-policy" className="text-cyan-400/80 transition hover:text-cyan-400">Privacy Policy</a>
+            <Link href="/privacy-policy" className="text-cyan-400/80 transition hover:text-cyan-400">Privacy Policy</Link>
           </div>
         </div>
         <div className="mt-12 border-t border-slate-800/40 pt-8 text-center text-xs text-slate-500">
