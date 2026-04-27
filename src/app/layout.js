@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import portfolio from "../data/portfolio";
 import DramaticLoader from "../components/DramaticLoader";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <DramaticLoader minMs={1200} />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
