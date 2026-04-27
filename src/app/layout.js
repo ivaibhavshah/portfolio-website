@@ -3,6 +3,7 @@ import "./globals.css";
 import portfolio from "../data/portfolio";
 import DramaticLoader from "../components/DramaticLoader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({ children }) {
         <DramaticLoader minMs={1200} />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
